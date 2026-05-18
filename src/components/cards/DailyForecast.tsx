@@ -15,7 +15,7 @@ function DailyForecast({}: Props) {
     // })
 
     return (
-        <Card title='Daily' childrenClassName="flex flex-col gap-4">
+        <Card title='Daily Forecast' childrenClassName="flex flex-col gap-4">
                 {data?.daily.map(day => (
                     <div key={day.dt} className="flex justify-between">
                         <p className="w-9">{new Date(day.dt * 1000).toLocaleDateString(undefined, {

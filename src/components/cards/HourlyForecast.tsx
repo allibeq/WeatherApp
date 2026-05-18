@@ -17,9 +17,11 @@ function HourlyForecast({}: Props)  {
         <Card title="Hourly Forecast" childrenClassName="flex gap-6 overflow-x-auto ">
             {data.hourly.map(hour => (
                 <div className="flex flex-col gap-2 items-center p-2">
-                    <p>
+                    <p className="whitespace-nowrap">
                         {new Date(hour.dt * 1000).toLocaleTimeString(undefined, {
-                            timeStyle: "short",
+                            hour: "numeric",
+                            minute: "2-digit",
+                            hour12: true,
                         })}
                     </p>
                     <WeatherIcon src={hour.weather[0].icon}/>

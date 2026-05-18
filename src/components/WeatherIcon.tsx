@@ -1,12 +1,14 @@
 import React from 'react';
+import clsx from "clsx";
 
 type Props = {
-    src: string
+    src: string,
+    className?: string
 }
 
-function WeatherIcon({src}: Props) {
+function WeatherIcon({src, className}: Props) {
     return (
-        <img className="size-10"
+        <img className={clsx("size-10", className)}
              src={`https://openweathermap.org/payload/api/media/file/${src}.png`}
              alt="Weather Icon"/>
     );

@@ -1,10 +1,10 @@
 import './App.css'
 // import {useQuery, useSuspenseQuery} from "@tanstack/react-query";
 // import {getWeather} from "./api.ts";
-import Card from "./components/cards/Card.tsx";
-import {mockData as data} from "./mock.ts";
 import DailyForecast from "./components/cards/DailyForecast.tsx";
 import HourlyForecast from "./components/cards/HourlyForecast.tsx";
+import CurrentForecast from "./components/cards/CurrentForecast.tsx";
+import AdditionalInfo from "./components/cards/AdditionalInfo.tsx";
 
 function App() {
   // const { data } = useSuspenseQuery({
@@ -17,9 +17,10 @@ function App() {
   return (
     <>
       <div className="flex flex-col gap-8">
-        <Card title='Current'>{JSON.stringify(data?.current).slice(0, 100)}</Card>
-            <HourlyForecast/>
-          <DailyForecast/>
+        <CurrentForecast />
+        <HourlyForecast/>
+        <DailyForecast/>
+        <AdditionalInfo/>
       </div>
     </>
   )
