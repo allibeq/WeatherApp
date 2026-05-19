@@ -1,7 +1,9 @@
 import React from 'react';
 import Card from "./Card.tsx";
-// import {useQuery, useSuspenseQuery} from "@tanstack/react-query";
+// import {useSuspenseQuery} from "@tanstack/react-query";
+// import {getWeather} from "../../api.ts";
 import {mockData as data} from "../../mock.ts";
+import type {Coords} from "../../types.ts";
 import Cloud from '../../assets/cloud.svg?react'
 import Pressure from '../../assets/pressure.svg?react'
 import Sunrise from '../../assets/sunrise.svg?react'
@@ -10,13 +12,14 @@ import Uv from '../../assets/uv.svg?react'
 import Wind from '../../assets/wind.svg?react'
 import Arrow from '../../assets/up-arrow.svg?react'
 
-type Props = {}
+type Props = {
+    coords: Coords
+}
 
-function AdditionalInfo({}: Props){
+function AdditionalInfo({coords}: Props){
     // const { data } = useSuspenseQuery({
-    //   queryKey: ['weather'],
-    //   // queryFn: () => getWeather({lat: 50, lon: 50}),
-    //   queryFn: () => getWeather({lat: 50, lon: 50}),
+    //   queryKey: ['weather', coords],
+    //   queryFn: () => getWeather({lat: coords.lat, lon: coords.lon}),
     // })
 
     return (

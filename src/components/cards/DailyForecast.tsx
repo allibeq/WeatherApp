@@ -2,16 +2,19 @@ import React from 'react';
 import Card from "./Card.tsx";
 import {mockData as data} from "../../mock.ts";
 import WeatherIcon from "../WeatherIcon.tsx";
-// import {useQuery, useSuspenseQuery} from "@tanstack/react-query";
+import type {Coords} from "@/types.ts";
+// import {useSuspenseQuery} from "@tanstack/react-query";
+// import {getWeather} from "../../api.ts";
+
 
 type Props = {
+    coords: Coords
 }
 
-function DailyForecast({}: Props) {
+function DailyForecast({coords}: Props) {
     // const { data } = useSuspenseQuery({
-    //   queryKey: ['weather'],
-    //   // queryFn: () => getWeather({lat: 50, lon: 50}),
-    //   queryFn: () => getWeather({lat: 50, lon: 50}),
+    //   queryKey: ['weather', coords],
+    //   queryFn: () => getWeather({lat: coords.lat, lon: coords.lon}),
     // })
 
     return (
