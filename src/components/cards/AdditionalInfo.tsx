@@ -3,7 +3,7 @@ import Card from "./Card.tsx";
 // import {useSuspenseQuery} from "@tanstack/react-query";
 // import {getWeather} from "../../api.ts";
 import {mockData as data} from "../../mock.ts";
-import type {Coords} from "../../types.ts";
+import type {Coords} from "@/types.ts";
 import Cloud from '../../assets/cloud.svg?react'
 import Pressure from '../../assets/pressure.svg?react'
 import Sunrise from '../../assets/sunrise.svg?react'
