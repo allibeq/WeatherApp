@@ -21,7 +21,7 @@ const CurrentWeatherSchema = z.object({
     visibility: z.number(),
     wind_speed: z.number(),
     wind_deg: z.number(),
-    wind_gust: z.number(),
+    wind_gust: z.number().optional(),
     weather: z.array(WeatherConditionSchema),
 });
 
@@ -37,7 +37,7 @@ const HourlyWeatherSchema = z.object({
     visibility: z.number(),
     wind_speed: z.number(),
     wind_deg: z.number(),
-    wind_gust: z.number(),
+    wind_gust: z.number().optional(),
     weather: z.array(WeatherConditionSchema),
     pop: z.number(),
 });
@@ -76,7 +76,7 @@ const DailyWeatherSchema = z.object({
 
     wind_speed: z.number(),
     wind_deg: z.number(),
-    wind_gust: z.number(),
+    wind_gust: z.number().optional(),
 
     weather: z.array(WeatherConditionSchema),
 

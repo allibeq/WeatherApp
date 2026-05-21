@@ -17,3 +17,11 @@ export async function getGeocode(location: string): Promise<CitiesResponse> {
 
     return CitiesResponseSchema.parse(data);
 }
+
+// todo create different way of setting geodata based on map click and select
+export async function getCityName({ lat, lon }: { lat: number, lon: number }): Promise<CitiesResponse> {
+    const res = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${API_KEY}`);
+    const data = await res.json();
+
+    return CitiesResponseSchema.parse(data);
+}

@@ -4,7 +4,7 @@ import {mockData as data} from "@/mock.ts";
 import WeatherIcon from "../WeatherIcon.tsx";
 import type {Coords} from "@/types.ts";
 // import { useSuspenseQuery } from "@tanstack/react-query";
-// import {getWeather} from "../../api.ts";
+// import {getWeather} from "@/api.ts";
 
 type Props = {
     coords: Coords

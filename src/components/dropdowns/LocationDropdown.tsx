@@ -1,18 +1,22 @@
-import React from 'react';
+import React, {type Dispatch, type SetStateAction} from 'react';
 import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select.tsx";
 
-type Props = {}
+type Props = {
+    location: string
+    setLocation: Dispatch<SetStateAction<string>>
+}
 
-function LocationDropdown({}: Props) {
+function LocationDropdown({location, setLocation}: Props) {
   return (
-      <Select>
+      <Select value={location} onValueChange={(value: string) => setLocation(value)}>
           <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="City" />
           </SelectTrigger>
           <SelectContent className="z-10001">
               <SelectGroup>
+                  {location === 'custom' && <SelectItem value="custom">Custom</SelectItem>}
                   {locations.map((location) => (
-                      <SelectItem value={location.name} key={location.name}>{location.name}</SelectItem>
+                      <SelectItem value={location} key={location}>{location}</SelectItem>
                   ))}
               </SelectGroup>
           </SelectContent>
