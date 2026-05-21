@@ -2,6 +2,7 @@ import { WeatherApiResponseSchema } from './schemas/weatherSchema.ts'
 import { CitiesResponseSchema } from './schemas/geocodeSchema.ts'
 import type { WeatherApiResponse } from './schemas/weatherSchema.ts'
 import type { CitiesResponse } from './schemas/geocodeSchema.ts'
+import {type AirPollutionResponse, AirPollutionResponseSchema} from "@/schemas/airPollutionSchema.ts";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -16,6 +17,14 @@ export async function getGeocode(location: string): Promise<CitiesResponse> {
     const data = await res.json();
 
     return CitiesResponseSchema.parse(data);
+}
+
+export async function getAirPollution({lat, lon}: {lat: number, lon: number}): Promise<AirPollutionResponse> {
+    const res = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
+    const data = await res.json();
+    console.warn(data)
+
+    return AirPollutionResponseSchema.parse(data);
 }
 
 // todo create different way of setting geodata based on map click and select

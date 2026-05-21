@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 import DailyForecast from "./components/cards/DailyForecast.tsx";
 import HourlyForecast from "./components/cards/HourlyForecast.tsx";
 import CurrentForecast from "./components/cards/CurrentForecast.tsx";
@@ -15,6 +15,7 @@ import CurrentSkeleton from "@/components/skeletons/CurrentSkeleton.tsx";
 import HourlySkeleton from "@/components/skeletons/HourlySkeleton.tsx";
 import DailySkeleton from "@/components/skeletons/DailySkeleton.tsx";
 import AdditionalSkeleton from "@/components/skeletons/AdditionalSkeleton.tsx";
+import SidePanel from "@/components/SidePanel.tsx";
 
 function App() {
   const [coordinates, setCoords] = useState<Coords>({lat: 50, lon: 50});
@@ -63,6 +64,7 @@ function App() {
               <AdditionalInfo coords={coords}/>
           </Suspense>
       </div>
+      <SidePanel coords={coords}/>
     </>
   )
 }
